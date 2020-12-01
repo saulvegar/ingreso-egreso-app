@@ -46,7 +46,7 @@
                   >
                   <div class="input-group-append">
                     <span class="input-group-text">
-                      <i *ngIf="registroForm.get('password').valid" class="fa fa-check-circle"></i>
+                      <i *ngIf="registroForm.get('pasenviosword').valid" class="fa fa-check-circle"></i>
                     </span>
                   </div>
                 </div>
@@ -57,9 +57,19 @@
                   type="submit"
                   [disabled]="registroForm.invalid"
                   class="btn btn-primary submit-btn btn-block"
+                  *ngIf="!cargando"
                 >
                   Crear cuenta
                 </button>
+                <button
+                    type="button"
+                    [disabled]="true"
+                    class="btn btn-primary submit-btn btn-block"
+                    *ngIf="cargando"
+                  >
+                    <i class="fa fa-spin fa-sync"></i>
+                    Espere...
+                  </button>
               </div>
               <div class="text-block text-center my-3">
                 <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
